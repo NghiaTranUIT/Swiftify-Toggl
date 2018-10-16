@@ -35,11 +35,12 @@ public final class LoginViewModel: ViewModelType {
 
     public struct Output {
         public let loginEnableDriver: Driver<Bool>
-        public let loginSuccess: Driver<Bool>
+        public let loginSuccess: Observable<Result<User>>
     }
 
     // MARK: - Variable
     private let networkService: NetworkServiceType
+    private let bag = DisposeBag()
 
     // MARK: - Init
     public init(networkService: NetworkServiceType) {
@@ -47,21 +48,16 @@ public final class LoginViewModel: ViewModelType {
     }
 
     public func transform(_ input: LoginViewModel.Input) -> LoginViewModel.Output {
-        let credentialObs = Observable.combineLatest(input.usernameVar, input.passwordVar) { (username, password) -> (String, String) in
-            return (username, password)
-        }
+        let credentialObs = Observable.combineLatest(input.usernameVar, input.passwordVar) { return ($0, $1) }
         let loginSuccess =
             input.loginBtnAction
             .throttle(0.3, scheduler: MainScheduler.instance)
             .withLatestFrom(credentialObs)
-            .flatMapLatest {[weak self] credential -> Observable<Result<User>> in
-                guard let strongSelf = self else { return .empty() }
+            .flatMap {[unowned self] credential -> Observable<Result<User>> in
                 let route = APIRoute.login(credential.0, credential.1)
-                return strongSelf.networkService
+                return self.networkService
                     .request(route, modelType: User.self)
             }
-            .map { return $0.isSuccess }
-            .asDriver(onErrorJustReturn: false)
 
         let loginEnableDriver = Observable.combineLatest(input.usernameVar.asObservable(), input.passwordVar.asObservable())
             .map { !$0.0.isEmpty && !$0.1.isEmpty }

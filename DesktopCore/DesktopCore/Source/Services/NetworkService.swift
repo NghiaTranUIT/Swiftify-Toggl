@@ -14,7 +14,7 @@ public enum Result<T> {
     case success(T)
     case error(NetworkError)
 
-    var isSuccess: Bool {
+    public var isSuccess: Bool {
         switch self {
         case .success:
             return true

@@ -21,7 +21,6 @@ final class LoginViewController: NSViewController {
     // MARK: - Variable
     var viewModel: LoginViewModel!
     private let bag = DisposeBag()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,13 +37,17 @@ final class LoginViewController: NSViewController {
             .drive(loginBtn.rx.isEnabled)
             .disposed(by: bag)
 
-        output.loginSuccess.drive(onNext: {[weak self] (success) in
-            guard let strongSelf = self else { return }
-            if success {
-                let navigator = AppDelegate.shared.app.navigator
-                navigator.navigate(to: .project, with: .present)
-            }
-        })
+        output.loginSuccess
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (result) in
+                if result.isSuccess {
+                    print("SUCCESS")
+                    let navigator = AppDelegate.shared.app.navigator
+                    navigator.navigate(to: .project, with: .present)
+                } else {
+                    print("Error")
+                }
+            })
         .disposed(by: bag)
     }
 }

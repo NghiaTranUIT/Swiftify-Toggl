@@ -10,16 +10,21 @@ end
 
 target 'Desktop' do
     project 'Desktop.xcodeproj'
-  important_pods
+   important_pods
 
   target 'DesktopTests' do
     inherit! :search_paths
+    important_pods
   end
 
 end
 
 target 'DesktopCore' do
    project 'DesktopCore/DesktopCore.xcodeproj'
-
-   important_pods 
+   important_pods
+   
+   target 'DesktopCoreTests' do
+       inherit! :search_paths
+       important_pods
+   end
 end
