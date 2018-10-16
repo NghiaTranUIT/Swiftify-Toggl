@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Desktop" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -700,14 +701,68 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="XfG-lQ-9wD" customClass="LoginViewController" customModule="Desktop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Le6-VU-b9m">
+                                <rect key="frame" x="136" y="163" width="208" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="208" id="BbG-sm-fLf"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="9cJ-1d-tCm">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rvu-IP-3lo">
+                                <rect key="frame" x="203" y="220" width="75" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Toggl Login" id="CGS-qa-QAp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5lU-Iu-Emp">
+                                <rect key="frame" x="200" y="53" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mTH-0t-htk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGA-sM-NXy">
+                                <rect key="frame" x="136" y="117" width="208" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="208" id="Y88-qz-ayW"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Orf-JC-NhW">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="bGA-sM-NXy" firstAttribute="top" secondItem="Le6-VU-b9m" secondAttribute="bottom" constant="24" id="9aS-rw-x00"/>
+                            <constraint firstItem="Le6-VU-b9m" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="WKD-Gn-jX5"/>
+                            <constraint firstItem="bGA-sM-NXy" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="hqP-0w-yYS"/>
+                            <constraint firstItem="Le6-VU-b9m" firstAttribute="top" secondItem="rvu-IP-3lo" secondAttribute="bottom" constant="35" id="kxh-vf-Lfg"/>
+                            <constraint firstItem="5lU-Iu-Emp" firstAttribute="top" secondItem="bGA-sM-NXy" secondAttribute="bottom" constant="36" id="oUE-d9-9SX"/>
+                            <constraint firstItem="rvu-IP-3lo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="33" id="tvo-5t-MCg"/>
+                            <constraint firstItem="5lU-Iu-Emp" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="vKl-eD-3fo"/>
+                            <constraint firstItem="rvu-IP-3lo" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="wks-gI-3jT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginBtn" destination="5lU-Iu-Emp" id="TVy-bz-VdU"/>
+                        <outlet property="passwordTxt" destination="bGA-sM-NXy" id="PgS-p7-eXe"/>
+                        <outlet property="usernameTxt" destination="Le6-VU-b9m" id="FhD-mA-zLt"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
