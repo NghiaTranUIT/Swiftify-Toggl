@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B43CF40CF8BE5C76030CEB1 /* libPods-DesktopCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B252D638B6FBA4BA94B34538 /* libPods-DesktopCore.a */; };
 		BAA8D8C021758E61007213A4 /* DesktopCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA8D8B621758E61007213A4 /* DesktopCore.framework */; };
 		BAA8D8C521758E61007213A4 /* DesktopCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8C421758E61007213A4 /* DesktopCoreTests.swift */; };
 		BAA8D8C721758E61007213A4 /* DesktopCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA8D8B921758E61007213A4 /* DesktopCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAA8D8DC21758FF5007213A4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8DB21758FF5007213A4 /* LoginViewModel.swift */; };
+		ECE59ACE8A09645FEE0089C4 /* Pods_DesktopCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A63AC05980F9CBAE754117 /* Pods_DesktopCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,8 +25,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41A63AC05980F9CBAE754117 /* Pods_DesktopCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesktopCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CEC9B215DB6E5584EF6C259 /* Pods-DesktopCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesktopCore.release.xcconfig"; path = "Target Support Files/Pods-DesktopCore/Pods-DesktopCore.release.xcconfig"; sourceTree = "<group>"; };
-		B252D638B6FBA4BA94B34538 /* libPods-DesktopCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesktopCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA8D8B621758E61007213A4 /* DesktopCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesktopCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA8D8B921758E61007213A4 /* DesktopCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesktopCore.h; sourceTree = "<group>"; };
 		BAA8D8BA21758E61007213A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B43CF40CF8BE5C76030CEB1 /* libPods-DesktopCore.a in Frameworks */,
+				ECE59ACE8A09645FEE0089C4 /* Pods_DesktopCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 		E5778C3FECFEE3A7A0D23547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B252D638B6FBA4BA94B34538 /* libPods-DesktopCore.a */,
+				41A63AC05980F9CBAE754117 /* Pods_DesktopCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

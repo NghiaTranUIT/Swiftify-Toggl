@@ -8,28 +8,28 @@
 
 import Foundation
 
-protocol LoginViewModelType {
+public protocol LoginViewModelType {
 
     var input: LoginViewModelInput { get }
     var output:LoginViewModelOutput { get }
 }
 
-protocol LoginViewModelInput {
+public protocol LoginViewModelInput {
 
 }
 
-protocol LoginViewModelOutput {
+public protocol LoginViewModelOutput {
 
 }
 
 // MARK: - LoginViewModel
-final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewModelOutput {
+public final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewModelOutput {
 
-    var input: LoginViewModelInput { return self }
-    var output: LoginViewModelOutput { return self }
+    public var input: LoginViewModelInput { return self }
+    public var output: LoginViewModelOutput { return self }
 
     // MARK: - Init
-    init() {
+    public init() {
 
     }
 
