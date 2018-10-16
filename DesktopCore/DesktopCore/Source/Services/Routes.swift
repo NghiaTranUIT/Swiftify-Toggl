@@ -19,6 +19,21 @@ struct Header {
     let value: String
 }
 
+enum HTTPMethod {
+
+    case get
+    case post
+
+    var rawValue: String {
+        switch self {
+        case .get:
+            return "GET"
+        case .post:
+            return "POST"
+        }
+    }
+}
+
 public enum APIRoute {
 
     case login(String, String)
@@ -26,6 +41,10 @@ public enum APIRoute {
 
     var baseURL: String {
         return "https://www.toggl.com/api/v8"
+    }
+
+    var method: HTTPMethod {
+        return .get
     }
 
     var path: String {
@@ -63,6 +82,8 @@ extension APIRoute: URLRequestConvertible {
         let url = URL(string: fullPath)!
         var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 60.0)
 
+        urlRequest.httpMethod = method.rawValue
+        
         headers.forEach {
             urlRequest.addValue($0.value, forHTTPHeaderField: $0.key)
         }

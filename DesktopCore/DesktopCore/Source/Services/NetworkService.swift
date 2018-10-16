@@ -42,9 +42,21 @@ public protocol NetworkFetcher {
 extension URLSession: NetworkFetcher {
 
     public func fetch(with urlRequest: URLRequest, complete: @escaping (Data?, Error?) -> Void) {
-        self.dataTask(with: urlRequest) { (data, _, error) in
+        let task = self.dataTask(with: urlRequest) { (data, response, error) in
+            if let httpResponse = response as? HTTPURLResponse {
+                if 200...300 ~= httpResponse.statusCode {
+                    complete(data, nil)
+                    return
+                } else {
+                    let error = NSError(domain: "com.toggl", code: httpResponse.statusCode, userInfo: nil)
+                    complete(nil, error)
+                    return
+                }
+            }
             complete(data, error)
         }
+
+        task.resume()
     }
 }
 
