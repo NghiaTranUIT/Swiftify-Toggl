@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User {
+public struct User {
 
     fileprivate struct Constants {
         static let Username = "username"
@@ -21,7 +21,7 @@ struct User {
 
 extension User: Serializable {
 
-    static func serialize(_ json: [String : Any]) -> User? {
+    public static func serialize(_ json: [String : Any]) -> User? {
         guard let username = json[Constants.Username] as? String,
             let fullname = json[Constants.FullName] as? String else {
                 return nil

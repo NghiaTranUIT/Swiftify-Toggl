@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import DesktopCore
 
 final class LoginViewController: NSViewController {
 
@@ -14,6 +15,9 @@ final class LoginViewController: NSViewController {
     @IBOutlet weak var usernameTxt: NSTextField!
     @IBOutlet weak var passwordTxt: NSTextField!
     @IBOutlet weak var loginBtn: NSButton!
+
+    // MARK: - Variable
+    var viewModel: LoginViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

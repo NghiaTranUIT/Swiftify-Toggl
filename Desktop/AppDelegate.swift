@@ -7,14 +7,30 @@
 //
 
 import Cocoa
+import DesktopCore
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    // MARK: - Variable
+    static var shared: AppDelegate {
+        return NSApp.delegate as! AppDelegate
+    }
+
+    lazy var app: Application = {
+        let urlSession = URLSession(configuration: .default)
+        let networkService = NetworkService(fetcher: urlSession)
+        let navigator = Navigator()
+        let session = SessionManager()
+        return Application(networkService: networkService,
+                           navigator: navigator,
+                           sessionManager: session)
+    }()
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+
+        app.start()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

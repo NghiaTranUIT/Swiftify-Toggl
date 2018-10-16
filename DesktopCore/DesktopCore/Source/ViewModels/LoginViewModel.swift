@@ -10,58 +10,55 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-public protocol LoginViewModelType {
+public protocol ViewModelType {
 
-    var input: LoginViewModelInput { get }
-    var output:LoginViewModelOutput { get }
-}
+    associatedtype Input
+    associatedtype Output
 
-public protocol LoginViewModelInput {
-
-    var usernameVar: Variable<String> { get }
-    var passwordVar: Variable<String> { get }
-
-    var loginBtnAction: PublishSubject<Void> { get }
-}
-
-public protocol LoginViewModelOutput {
-
-    var loginEnableDriver: Driver<Bool> { get }
-    var loginSuccess: Driver<Bool> { get }
+    func transform(_ input: Input) -> Output
 }
 
 // MARK: - LoginViewModel
-public final class LoginViewModel: LoginViewModelType, LoginViewModelInput, LoginViewModelOutput {
+public final class LoginViewModel: ViewModelType {
 
-    public var input: LoginViewModelInput { return self }
-    public var output: LoginViewModelOutput { return self }
+    public struct Input {
+        public let usernameVar: Variable<String>
+        public let passwordVar: Variable<String>
+        public let loginBtnAction: PublishSubject<Void>
+    }
+
+    public struct Output {
+        public let loginEnableDriver: Driver<Bool>
+        public let loginSuccess: Driver<Bool>
+    }
 
     // MARK: - Variable
     private let networkService: NetworkServiceType
 
-    // MARK: - Input
-    public let usernameVar = Variable<String>("")
-    public let passwordVar = Variable<String>("")
-    public let loginBtnAction = PublishSubject<Void>()
-
-    // MARK: - Output
-    public let loginEnableDriver: Driver<Bool>
-    public var loginSuccess: Driver<Bool>
-
     // MARK: - Init
     public init(networkService: NetworkServiceType) {
         self.networkService = networkService
+    }
 
-        // Binding
-        loginSuccess = loginBtnAction
+    public func transform(_ input: LoginViewModel.Input) -> LoginViewModel.Output {
+
+        let loginSuccess =
+            input.loginBtnAction
             .throttle(0.3, scheduler: MainScheduler.instance)
-            .flatMapLatest { _ -> Observable<Result<User>> in
-                let route = APIRoute.login(self.usernameVar.value,
-                                           self.passwordVar.value)
-                return self.networkService
+            .flatMapLatest {[weak self] _ -> Observable<Result<User>> in
+                guard let strongSelf = self else { return .empty() }
+                let route = APIRoute.login(input.usernameVar.value,
+                                           input.passwordVar.value)
+                return strongSelf.networkService
                     .request(route, modelType: User.self)
-        }
+            }
             .map { return $0.isSuccess }
             .asDriver(onErrorJustReturn: false)
+
+        let loginEnableDriver = Observable.combineLatest(input.usernameVar.asObservable(), input.usernameVar.asObservable())
+            .map { !$0.0.isEmpty && !$0.1.isEmpty }
+            .asDriver(onErrorJustReturn: false)
+
+        return Output(loginEnableDriver: loginEnableDriver, loginSuccess: loginSuccess)
     }
 }

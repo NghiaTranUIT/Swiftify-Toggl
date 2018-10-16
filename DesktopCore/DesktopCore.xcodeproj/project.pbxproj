@@ -16,6 +16,7 @@
 		BAA8D8E4217593EE007213A4 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8E3217593EE007213A4 /* Routes.swift */; };
 		BAA8D8E621759AE9007213A4 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8E521759AE9007213A4 /* Serializable.swift */; };
 		BAA8D8E821759BCD007213A4 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8E721759BCD007213A4 /* APIResponse.swift */; };
+		BAA8D8F12175B36C007213A4 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8F02175B36C007213A4 /* SessionManager.swift */; };
 		ECE59ACE8A09645FEE0089C4 /* Pods_DesktopCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A63AC05980F9CBAE754117 /* Pods_DesktopCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		BAA8D8E3217593EE007213A4 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		BAA8D8E521759AE9007213A4 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		BAA8D8E721759BCD007213A4 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		BAA8D8F02175B36C007213A4 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		F547642FF303AB1448EB2863 /* Pods-DesktopCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesktopCore.debug.xcconfig"; path = "Target Support Files/Pods-DesktopCore/Pods-DesktopCore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 			children = (
 				BAA8D8E1217593DC007213A4 /* NetworkService.swift */,
 				BAA8D8E3217593EE007213A4 /* Routes.swift */,
+				BAA8D8F02175B36C007213A4 /* SessionManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				BAA8D8E2217593DC007213A4 /* NetworkService.swift in Sources */,
 				BAA8D8DC21758FF5007213A4 /* LoginViewModel.swift in Sources */,
 				BAA8D8E821759BCD007213A4 /* APIResponse.swift in Sources */,
+				BAA8D8F12175B36C007213A4 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
