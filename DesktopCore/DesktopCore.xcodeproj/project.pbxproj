@@ -11,6 +11,11 @@
 		BAA8D8C521758E61007213A4 /* DesktopCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8C421758E61007213A4 /* DesktopCoreTests.swift */; };
 		BAA8D8C721758E61007213A4 /* DesktopCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA8D8B921758E61007213A4 /* DesktopCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAA8D8DC21758FF5007213A4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8DB21758FF5007213A4 /* LoginViewModel.swift */; };
+		BAA8D8DF217593C2007213A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8DE217593C2007213A4 /* User.swift */; };
+		BAA8D8E2217593DC007213A4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8E1217593DC007213A4 /* NetworkService.swift */; };
+		BAA8D8E4217593EE007213A4 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8E3217593EE007213A4 /* Routes.swift */; };
+		BAA8D8E621759AE9007213A4 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8E521759AE9007213A4 /* Serializable.swift */; };
+		BAA8D8E821759BCD007213A4 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8D8E721759BCD007213A4 /* APIResponse.swift */; };
 		ECE59ACE8A09645FEE0089C4 /* Pods_DesktopCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A63AC05980F9CBAE754117 /* Pods_DesktopCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +39,11 @@
 		BAA8D8C421758E61007213A4 /* DesktopCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopCoreTests.swift; sourceTree = "<group>"; };
 		BAA8D8C621758E61007213A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAA8D8DB21758FF5007213A4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BAA8D8DE217593C2007213A4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BAA8D8E1217593DC007213A4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BAA8D8E3217593EE007213A4 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		BAA8D8E521759AE9007213A4 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		BAA8D8E721759BCD007213A4 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		F547642FF303AB1448EB2863 /* Pods-DesktopCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesktopCore.debug.xcconfig"; path = "Target Support Files/Pods-DesktopCore/Pods-DesktopCore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +109,8 @@
 		BAA8D8D921758FE7007213A4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BAA8D8E0217593D0007213A4 /* Services */,
+				BAA8D8DD217593BA007213A4 /* Models */,
 				BAA8D8DA21758FEA007213A4 /* ViewModels */,
 			);
 			path = Source;
@@ -110,6 +122,25 @@
 				BAA8D8DB21758FF5007213A4 /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BAA8D8DD217593BA007213A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BAA8D8DE217593C2007213A4 /* User.swift */,
+				BAA8D8E521759AE9007213A4 /* Serializable.swift */,
+				BAA8D8E721759BCD007213A4 /* APIResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BAA8D8E0217593D0007213A4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BAA8D8E1217593DC007213A4 /* NetworkService.swift */,
+				BAA8D8E3217593EE007213A4 /* Routes.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E23A8A004E87F5CD84848AA9 /* Pods */ = {
@@ -265,7 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA8D8DF217593C2007213A4 /* User.swift in Sources */,
+				BAA8D8E621759AE9007213A4 /* Serializable.swift in Sources */,
+				BAA8D8E4217593EE007213A4 /* Routes.swift in Sources */,
+				BAA8D8E2217593DC007213A4 /* NetworkService.swift in Sources */,
 				BAA8D8DC21758FF5007213A4 /* LoginViewModel.swift in Sources */,
+				BAA8D8E821759BCD007213A4 /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
